@@ -1,0 +1,134 @@
+section AlgebraicObjects:
+    
+    def associative:
+        condition on binary operation .:
+            . is associative if for any a, b, c, (a . b) . c = a . (b . c)
+
+    def semigroup:
+        object containing:
+            set S
+            binary operation .
+            identity element 1
+        notation:
+            denoted (S, ., 1) or just S
+        such that:
+            s is associative
+            s . 1 = s = 1 . s
+
+    def abelian:
+        condition on semigroup S:
+            S is abelian if the binary operation of S is commutative
+
+    def group:
+        semigroup S such that:
+            for all x, y in S, xy = yx
+
+    def center(group G):
+        Z(G) is the subgroup of G containing all x such that:
+            for all y in G:
+                xy = yx
+        notation:
+            denoted Z(G)
+            
+    def ring:
+        object containing:
+            set R
+            binary operation +
+            binary operation *
+            identity element 0 of +
+            identity element 1 of *
+        notation:
+            denoted (R, +, *, 0, 1) or (R, +, *) or usually just R
+        such that:
+            (R, +, 0) is an abelian group
+            (R, *, 1) is a semigroup
+            for all x, y, z in R we have:
+                x*(y+z) = x*y + x*z
+                (x+y)*z = x*z + y*z
+
+    def field:
+        ring (R, +, *, 0, 1) such that:
+            * is commutative
+            for every x != 0 in R, there exists an inverse x^{-1} of x
+            
+section VectorSpaces:
+
+    def module:
+        object containing:
+            ring R
+            abelian group (M, +, 0)
+            binary operation * : R x M -> M
+        such that if r, r_1, r_2 in R and m, m_1, m_2 in M then:
+            r*(m_1+m_2) = r*m_1 + r*m_2   # left distributivity
+            (r_1+r_2)*m = r_1*m + r_1*m   # right distributivity
+            (r_1r_2)*m = r_1*(r_2*m)      # associativity
+            1*m = m # if 1 is the identity of R
+        notation:
+            this is called a module M over the ring R
+
+    def vector space:
+        module M over a ring F such that:
+            F is a field
+        notation:
+            denoted V/F (or usually just V)
+
+    def subspace:
+        a subset S of a vector space V such that:
+            S with the binary operations *, + from V is a vector space
+
+        theorem:
+            define: vector space V, W over field F
+            then W is a subspace of V iff:
+                for all w_1, w_2 in W, a, b in F:
+                    aw_1 + bw_2 is in W
+
+    def span(vectors v_1, v_2, ..., v_n in vector space V over field F):
+        the set of all vectors of the form
+            v = a_1v_1 + a_2v_2 + ... + a_nv_n
+        where a_1, a_2, ..., a_n in F
+        notation:
+            span{v_1, v_2, ..., v_n}
+            we say that v_1, ..., v_n span span{v_1, v_2, ..., v_n}
+        notes:
+            the field F might be inportant, since the constants come from F
+
+    def linearly independent:
+        condition on vectors v_1, ..., v_n over field F:
+            we say that v_1, ..., v_n are linearly independent if:
+                there do not exist constants a_1, ..., a_n in F such that:
+                    a_1v_1 + a_2v_2 + ... + a_nv_n = 0
+        notes:
+            the field F might be inportant, since the constants come from F
+        
+section BasisAndDimension:
+
+    def basis(vector space V over field F):
+        a basis of V is a set of vectors {v_1, ..., v_n} in V such that:
+            v_1, ..., v_n are linearly independent
+            span{v_1, ..., v_n} = V
+
+    def finitely generated:
+        condition on vector space V:
+            we say that V is finitely generated if:
+                there exists a finite subset {v_1, ..., v_n} of V such that:
+                    span{v_1, ..., v_n} = V
+        notation:
+            sometimes abbreviated f.g.
+
+    def dimension(vector space V over field F):
+        the number of elements in any basis of V over F
+        notation:
+            denoted dim_F(V) or just dim(V) if F is clear from context
+            
+    theorem:
+        let V be a finitely generated vector space, then:
+        (i) there exists a finite basis of V
+        (ii) if B_1, B_2 are finite bases of V then:
+            |B_1| = |B_2|
+        so dim_F(V) is well-defined
+    
+
+    
+            
+            
+            
